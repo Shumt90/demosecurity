@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>cms login page</title>
+</head>
+<body>
+<form>
+
+
+    <div class="container">
+        <label><b>Username</b>
+            <input id="username" type="text" value="user">
+        </label>
+
+        <label ><b>Password</b>
+            <input id="password" type="password" value="user">
+        </label>
+
+        <label><b>remember me</b>
+            <input id="rememberMe" type="checkbox" checked="true">
+        </label>
+
+        <button type="button" onclick="login()">Login</button>
+        <button type="button" onclick="logout()">Logout</button>
+    </div>
+
+</form>
+</body>
+
+<script>
+
+    function login() {
+
+        let userPass = {}
+        userPass.username=document.getElementById('username').value
+        userPass.password=document.getElementById('password').value
+        userPass.rememberMe=document.getElementById('rememberMe').checked
+
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "POST", '/authentication', true );
+        xmlHttp.setRequestHeader("Content-Type", "application/json;charset=UTF-8");
+        xmlHttp.send( JSON.stringify(userPass) );
+    }
+
+    function logout() {
+
+        let xmlHttp = new XMLHttpRequest();
+        xmlHttp.open( "DELETE", '/authentication', true );
+        xmlHttp.send( );
+    }
+
+</script>
+</html>
