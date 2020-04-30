@@ -1,12 +1,12 @@
 package com.example.demosecuriry.security;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.*;
-import org.springframework.security.core.GrantedAuthority;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -15,16 +15,12 @@ import java.util.List;
 @NoArgsConstructor
 public class User implements UserDetails {
     private String username;
-
     private String password;
-
     private List<SimpleGrantedAuthority> authorities;
-
     private boolean accountNonExpired;
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
     private boolean enabled;
-    private long created;
 
     @Override
     public boolean isAccountNonExpired() {

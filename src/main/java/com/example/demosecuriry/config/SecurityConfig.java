@@ -3,8 +3,6 @@ package com.example.demosecuriry.config;
 
 import com.example.demosecuriry.security.TokenValidatorFilter;
 import com.example.demosecuriry.security.User;
-import com.nimbusds.jose.crypto.PasswordBasedDecrypter;
-import com.nimbusds.jose.crypto.PasswordBasedEncrypter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -60,12 +58,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorities(List.of(new SimpleGrantedAuthority("USER"), new SimpleGrantedAuthority("ADMIN")))
                 .build();
         return new InMemoryUserDetailsManager(user, admin);
-    }
-
-    public static void main(String[] args) {
-        var cb = new BCryptPasswordEncoder();
-
-        System.out.println(cb.matches("1",cb.encode("1")));
     }
 
     @Bean
