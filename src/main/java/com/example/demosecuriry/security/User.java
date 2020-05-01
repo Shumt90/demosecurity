@@ -21,6 +21,7 @@ public class User implements UserDetails {
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
     private boolean enabled;
+    private long iat;
 
     @Override
     public boolean isAccountNonExpired() {

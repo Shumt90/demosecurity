@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  openresty:
+    network_mode: host
+    image: openresty/openresty
+    volumes:
+      - "./nginx.conf:/usr/local/openresty/nginx/conf/nginx.conf:rw"
+      - "./lib:/usr/local/openresty/lualib/ext"
+      - "./site:/site"

@@ -1,6 +1,5 @@
 package com.example.demosecuriry.security;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,6 +23,7 @@ public class UserDto {
     private boolean accountNonLocked;
     private boolean credentialsNonExpired;
     private boolean enabled;
+    private long iat;
 
     public static User to(UserDto dto){
 
@@ -36,10 +36,11 @@ public class UserDto {
                 .credentialsNonExpired(dto.credentialsNonExpired)
                 .enabled(dto.enabled)
                 .authorities(authorities)
+                .iat(dto.iat)
                 .build();
     }
 
-    public static UserDto from(UserDetails user){
+    public static UserDto from(UserDetails user, long IssuedAt) {
 
         List<String> authorities = user.getAuthorities().stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList());
 
@@ -50,6 +51,7 @@ public class UserDto {
                 .credentialsNonExpired(user.isCredentialsNonExpired())
                 .enabled(user.isEnabled())
                 .authorities(authorities)
+                .iat(IssuedAt)
                 .build();
     }
 }

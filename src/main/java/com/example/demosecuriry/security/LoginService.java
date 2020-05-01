@@ -45,7 +45,7 @@ public class LoginService {
 
             if (passwordEncoder.matches(loginPass.getPassword(), user.getPassword())) {
 
-                var userDto = UserDto.from(user);
+                var userDto = UserDto.from(user, System.currentTimeMillis());
 
                 JWSObject jwsObject = new JWSObject(new JWSHeader(JWSAlgorithm.HS256),
                         new Payload(om.writeValueAsString(userDto)));

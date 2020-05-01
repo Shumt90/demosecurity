@@ -1,2 +1,5 @@
 app:
   secret: sssssssseeeeeeeeeeeeeeeccccccccccccccrrrrrrrrrrreeeeeeeeettttttt-at-least-32-characters
+
+server:
+  port: 8081
