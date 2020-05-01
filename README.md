@@ -4,17 +4,17 @@
 
 develop
 
-Components
+**Components**
 - openresty https://openresty.org/
 - spring security
 - static site
 - java spring backed
 
-lua lib:
+**external lua lib**:
  - https://github.com/SkyLothar/lua-resty-jwt
  - https://github.com/cloudflare/lua-resty-cookie
  
-Flow:
+**Flow**:
 
 implemented in lib/finch/wrap.lua file
 
